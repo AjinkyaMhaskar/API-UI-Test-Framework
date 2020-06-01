@@ -89,15 +89,54 @@ public class ConfigFileReader {
 	}
 	
 	/*
-	 * Function - getSearchField
+	 * Function - getSearchField_title 
 	 * Return type - String(URL) 
 	 * */
 	
-	public static String getSearchField() {
-		String search = properties.getProperty("search");
+	public static String getSearchField_title() {
+		String search = properties.getProperty("search_title");
 		if (search != null)
 			return search;
 		else
 			throw new RuntimeException("Search field is not specified in the Configuration.properties file.");
+	}
+	
+	/*
+	 * Function - getSearchField_author 
+	 * Return type - String(URL) 
+	 * */
+	
+	public static String getSearchField_author() {
+		String search = properties.getProperty("search_author");
+		if (search != null)
+			return search;
+		else
+			throw new RuntimeException("Search field is not specified in the Configuration.properties file.");
+	}
+	
+	/*
+	 * Function - getSearchField_all 
+	 * Return type - String(URL) 
+	 * */
+	
+	public static String getSearchField_all() {
+		String search = properties.getProperty("search_all");
+		if (search != null)
+			return search;
+		else
+			throw new RuntimeException("Search field is not specified in the Configuration.properties file.");
+	}
+	
+	/*
+	 * Function - getPubYear 
+	 * Return type - String(URL) 
+	 * */
+	
+	public static String getPubYear() {
+		String PubYear = properties.getProperty("original_publication_year");
+		if (PubYear != null)
+			return PubYear;
+		else
+			throw new RuntimeException("PubYear field is not specified in the Configuration.properties file.");
 	}
 }

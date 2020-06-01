@@ -19,12 +19,22 @@
 
 
 @tag
-Feature: Search book API operation using REST-Assured
+Feature: Search book API operation using REST-Assured, when user is un-aware about exact search parameter(Plot, Quoter, Trivia)
 
 Scenario: Verify GET operation with user key and query paramter
 
-    Given I perform GET operation for "https://www.goodreads.com/search" with query parameters
+    Given I perform GET operation for "https://www.goodreads.com/search" with query parameters search as "all"
     
-    Then I see API response in XML format and use XML class path for result verification
+    Then I see API response in XML format and use XML class path for result verification with "no_filter"
     
    	Then I should see the status as 200 
+   	
+   	
+Scenario: Verify GET operation with user key and query author name, when user is aware for author name and book published year
+
+    Given I perform GET operation for "https://www.goodreads.com/search" with query parameters search as "author"
+    
+    Then I see API response in XML format and use XML class path for result verification with "original_publication_year"
+    
+   	Then I should see the status as 200 
+   	
